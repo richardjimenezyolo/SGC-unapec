@@ -3,9 +3,12 @@
 	import { Chart } from 'chart.js/auto';
 	import { collection, getDocs, query } from 'firebase/firestore';
 
-	let canvas = $state();
+	let salesReportChart = $state();
+
+	let warehouseChart = $state()
 
 	let invoices = $state([]);
+	let items = $state([]);
 
 	getDocs(query(collection(db, 'invoices'))).then((data) => {
 		data.forEach((d) => {
@@ -15,6 +18,38 @@
 			});
 		});
 	});
+
+	getDocs(query(collection(db, 'items'))).then((data) => {
+		data.forEach((d) => {
+			items.push({
+				...d.data(),
+				id: d.id
+			});
+		});
+	});
+
+	$effect(() => {
+		if (!items.length) {
+            return;
+        }
+
+		const keys = items.map(el => ({label: el.name, amount: el.amount || 0}))
+
+		new Chart(warehouseChart, {
+			type: 'bar',
+			data: {
+				labels: keys.map(el => el.label),
+				datasets: [
+					{
+						label: 'Articulos',
+						data: keys.map(el => el.amount),
+						borderWidth: 1,
+						backgroundColor: '#D93526',
+					}
+				]
+			}
+		});
+	})
 
 	$effect(() => {
         if (!invoices.length) {
@@ -37,11 +72,7 @@
             datesMap[indexKey] += item.total
 		});
 
-        console.log(datesMap);
-        
-
-
-		new Chart(canvas, {
+		new Chart(salesReportChart, {
 			type: 'bar',
 			data: {
 				labels: Object.keys(datesMap).sort(),
@@ -49,7 +80,8 @@
 					{
 						label: 'Ventas',
 						data: Object.keys(datesMap).sort().map(key => datesMap[key]),
-						borderWidth: 1
+						borderWidth: 1,
+						backgroundColor: '#00895A'
 					}
 				]
 			}
@@ -62,9 +94,13 @@
 <div class="grid">
 	<div>
 		<article>
-			<canvas bind:this={canvas}> </canvas>
+			<canvas bind:this={salesReportChart}> </canvas>
 		</article>
 	</div>
-	<div></div>
+	<div>
+		<article>
+			<canvas bind:this={warehouseChart}> </canvas>
+		</article>
+	</div>
 	<div></div>
 </div>
