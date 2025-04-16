@@ -80,7 +80,7 @@
 				<li>
 					<a class={getMenuItemClass('items')} href="/app/items">
 						<ion-icon name="pricetags-outline"></ion-icon>
-						Insumos
+						Articulos
 					</a>
 				</li>
 				<li>

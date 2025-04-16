@@ -8,6 +8,7 @@
 	let providerData = $state({
 		id: URL.parse(location.href)?.searchParams.get('id'),
 		name: '',
+		rnc: ''
 	});
 
 	if (providerData.id) {
@@ -53,6 +54,11 @@
 			<label>
 				Nombre proveedor:
 				<input type="text" placeholder="MercaSid" bind:value={providerData.name} />
+			</label>
+
+			<label>
+				RNC:
+				<input type="text" placeholder="RNC" bind:value={providerData.rnc} />
 			</label>
 
 			<footer class="flex justify-end">

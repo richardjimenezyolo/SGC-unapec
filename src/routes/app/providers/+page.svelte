@@ -38,6 +38,7 @@
 	<thead>
 		<tr>
 			<th>Nombre</th>
+			<th>RNC</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -45,6 +46,7 @@
 		{#each providers as provider}
 			<tr>
 				<td>{provider.name}</td>
+				<td>{provider.rnc}</td>
 				<td>
 					<div class="flex justify-evenly">
 						<a href={`/app/providers/form?id=${provider.id}`} class="contrast">

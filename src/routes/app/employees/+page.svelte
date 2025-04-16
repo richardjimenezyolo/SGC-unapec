@@ -37,6 +37,9 @@
 	<thead>
 		<tr>
 			<th>Nombre</th>
+			<th>Cedula</th>
+			<th>Tanda laboral</th>
+			<th>Fecha de ingreso</th>
 			<th>Salrio</th>
 			<th></th>
 		</tr>
@@ -45,6 +48,9 @@
 		{#each employees as item}
 			<tr>
 				<td>{item.name}</td>
+				<td>{item.cedula}</td>
+				<td>{item.tanda}</td>
+				<td>{item.worked_since}</td>
 				<td>{item.salary}</td>
 				<td>
 					<div class="flex justify-evenly">

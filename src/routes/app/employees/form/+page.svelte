@@ -53,6 +53,25 @@
 			</label>
 
 			<label>
+				Cedula:
+				<input type="number" placeholder="xxx-xxxxxxx-x" bind:value={employeeData.cedula} />
+			</label>
+
+			<label>
+				Tanda laboral:
+				<select bind:value={employeeData.tanda}>
+					<option value="" disabled>Seleccione algo</option>
+					<option value="8am-5pm">8am-5pm</option>
+					<option value="5pm-10pm">8am-5pm</option>
+				</select>
+			</label>
+
+			<label>
+				Fecha de ingreso:
+				<input type="date" bind:value={employeeData.worked_since} />
+			</label>
+
+			<label>
 				Salario:
 				<input type="number" placeholder="10,000.00 $DOP" bind:value={employeeData.salary} />
 			</label>

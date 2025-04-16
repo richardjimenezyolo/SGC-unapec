@@ -52,7 +52,7 @@
 	<form class="w-3/4" onsubmit={save}>
 		<article>
 			<header>
-				<h3>Nuevo Insumo</h3>
+				<h3>Nuevo Articulo</h3>
 			</header>
 
 			<p class="mb-4" style="color: var(--pico-del-color);">
@@ -60,8 +60,14 @@
 			</p>
 
 			<label>
-				Nombre Insumo:
+				Nombre Articulo:
 				<input type="text" placeholder="Harina" bind:value={itemData.name} />
+			</label>
+
+
+			<label>
+				Existencia:
+				<input type="number" bind:value={itemData.amount} />
 			</label>
 
 			<label>

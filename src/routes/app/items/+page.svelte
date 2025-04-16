@@ -40,8 +40,8 @@
 </script>
 
 <div class="flex w-full justify-between">
-	<h1>Insumos:</h1>
-	<a href="/app/items/form" role="button">Crear nuevo insumo</a>
+	<h1>Articulos:</h1>
+	<a href="/app/items/form" role="button">Crear nuevo articulo</a>
 </div>
 
 <table class="striped">
@@ -50,6 +50,7 @@
 			<th>Nombre</th>
 			<th>Precio</th>
 			<th>Proveedor</th>
+			<th>Existencia</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -59,6 +60,7 @@
 				<td>{item.name}</td>
 				<td>{item.price}</td>
 				<td>{providers[item.provider]?.name}</td>
+				<td>{item.amount}</td>
 				<td>
 					<div class="flex justify-evenly">
 						<a href={`/app/items/form?id=${item.id}`} class="contrast">

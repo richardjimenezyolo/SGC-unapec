@@ -11,7 +11,8 @@
 		items: [],
 		sub_total: 0,
 		total: 0,
-		created_at: new Date
+		created_at: new Date,
+		note: ''
 	});
 
 	$effect(() => {
@@ -191,6 +192,11 @@
 					</tr>
 				</tfoot>
 			</table>
+
+			<label>
+				Notas:
+				<textarea bind:value={invoiceData.note}></textarea>
+			</label>
 
 			{#if !invoiceData.id}
 				<footer class="flex justify-end">
