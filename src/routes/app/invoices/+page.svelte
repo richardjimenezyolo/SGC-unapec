@@ -89,7 +89,9 @@
 
 						<dialog open={item.delete}>
 							<article>
-								<h2>Corfirmacion</h2>
+								<header>
+									<h2>Corfirmacion</h2>
+								</header>
 								<p>Estas Seguro de que deseas borrar esta factura?</p>
 								<footer>
 									<button
@@ -100,7 +102,7 @@
 									>
 										Cancel
 									</button>
-									<button onclick={() => removeDoc(item)}>Confirm</button>
+									<button onclick={() => removeDoc(item)}>Confirmar</button>
 								</footer>
 							</article>
 						</dialog>

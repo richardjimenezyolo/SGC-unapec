@@ -27,6 +27,7 @@
             /** @type {Date} d*/
 			const d = item.created_at.toDate()
             
+			/** @type{String} */
             const indexKey = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
 
             if (!datesMap[indexKey]) {
@@ -51,13 +52,6 @@
 						borderWidth: 1
 					}
 				]
-			},
-			options: {
-				scales: {
-					y: {
-						beginAtZero: true
-					}
-				}
 			}
 		});
 	});
