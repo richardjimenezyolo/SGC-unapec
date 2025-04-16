@@ -25,6 +25,15 @@
 
 		return className;
 	};
+
+	const changeTheme = () => {
+		console.log('Cambiar tema');
+		
+		/** @type String*/
+		const theme = document.querySelector('html')?.getAttribute('data-theme') === 'light' ? 'dark' : 'light'
+		document.querySelector('html')?.setAttribute('data-theme',theme)
+		localStorage.setItem('theme', document.querySelector('html')?.getAttribute('data-theme'))
+	}
 </script>
 
 <nav>
@@ -40,6 +49,9 @@
 			<details class="dropdown">
 				<summary>{userState.user.email}</summary>
 				<ul>
+					<li>
+						<a href="#" onclick={changeTheme}>🌗 Cambiar tema</a>
+					</li>
 					<li><a href="#" onclick={logOut}>🚪Log out</a></li>
 				</ul>
 			</details>
@@ -87,6 +99,12 @@
 					<a class={getMenuItemClass('users')} href="/app/users">
 						<ion-icon name="people-outline"></ion-icon>
 						Usuarios
+					</a>
+				</li>
+				<li>
+					<a class={getMenuItemClass('employees')} href="/app/employees">
+						<ion-icon name="people-circle-outline"></ion-icon>
+						Employees
 					</a>
 				</li>
 			</ul>

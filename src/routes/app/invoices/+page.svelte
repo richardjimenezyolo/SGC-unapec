@@ -41,7 +41,7 @@
 </script>
 
 <div class="flex w-full justify-between">
-	<h1>Facturacion:</h1>
+	<h1>Facturación:</h1>
 	<a href="/app/invoices/form" role="button">Facturar productos</a>
 </div>
 
