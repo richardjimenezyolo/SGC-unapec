@@ -32,6 +32,19 @@
 		});
 	});
 
+	let brands = $state({});
+
+	getDocs(collection(db, 'brands')).then((list) => {
+		list.forEach((p) => {
+			brands[p.id] = {
+				...p.data(),
+				id: p.id
+			};
+		});
+		console.log(brands);
+		
+	});
+
 	const removeDoc = ({ id }) => {
 		deleteDoc(doc(db, 'items', id)).then(() => {
 			loadData();
@@ -49,6 +62,7 @@
 		<tr>
 			<th>Nombre</th>
 			<th>Precio</th>
+			<th>Marca</th>
 			<th>Proveedor</th>
 			<th>Existencia</th>
 			<th></th>
@@ -59,6 +73,7 @@
 			<tr>
 				<td>{item.name}</td>
 				<td>{item.price}</td>
+				<td>{brands[item.brand]?.name}</td>
 				<td>{providers[item.provider]?.name}</td>
 				<td>{item.amount}</td>
 				<td>

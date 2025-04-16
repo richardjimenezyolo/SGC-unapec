@@ -84,6 +84,12 @@
 					</a>
 				</li>
 				<li>
+					<a class={getMenuItemClass('brands')} href="/app/brands">
+						<ion-icon name="git-branch-outline"></ion-icon>
+						Marcas
+					</a>
+				</li>
+				<li>
 					<a class={getMenuItemClass('providers')} href="/app/providers">
 						<ion-icon name="business-outline"></ion-icon>
 						Proveedores

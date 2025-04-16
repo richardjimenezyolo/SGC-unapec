@@ -23,6 +23,17 @@
 		});
 	});
 
+	let brands = $state([]);
+
+	getDocs(collection(db, 'brands')).then((list) => {
+		list.forEach((p) => {
+			brands.push({
+				...p.data(),
+				id: p.id
+			});
+		});
+	});
+
 	if (itemData.id) {
 		getDoc(doc(db, 'items', itemData.id)).then((data) => {
 			data = data.data();
@@ -64,10 +75,19 @@
 				<input type="text" placeholder="Harina" bind:value={itemData.name} />
 			</label>
 
-
 			<label>
 				Existencia:
 				<input type="number" bind:value={itemData.amount} />
+			</label>
+
+			<label>
+				Marca
+				<select bind:value={itemData.brand}>
+					<option value="" disabled>Seleccione alguna marca</option>
+					{#each brands as brand}
+						<option value={brand.id}>{brand.name}</option>
+					{/each}
+				</select>
 			</label>
 
 			<label>
@@ -87,7 +107,6 @@
 			</label>
 
 			<footer class="flex justify-end">
-				
 				<button>Guardar</button>
 			</footer>
 		</article>
