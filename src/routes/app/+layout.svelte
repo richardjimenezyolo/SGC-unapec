@@ -110,7 +110,7 @@
 				<li>
 					<a class={getMenuItemClass('employees')} href="/app/employees">
 						<ion-icon name="people-circle-outline"></ion-icon>
-						Employees
+						Empleados
 					</a>
 				</li>
 			</ul>
